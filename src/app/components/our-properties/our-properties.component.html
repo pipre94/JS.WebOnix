@@ -1,0 +1,30 @@
+<div class="wrapper">
+    <div class="page-header page-header-xs" style="background-image: url('./assets/img/fondo-onix.jpg');">
+        <div class="filter"></div>
+    </div>
+    <div class="container">
+        <br/>
+        <h2 class="text-center" style="color:rgb(0, 0, 0); font-weight:bold; ">LO MEJOR DE BUSCAR ES ENCONTRAR</h2>
+        <br/>
+        <h4 style="color:rgb(0, 0, 0); font-weight:bold;">Recomendados</h4>
+        <p class="card-text" style="color:rgb(0, 0, 0);">Quizas te pueda interesar</p>
+        <br/>
+        <div class="row">
+            <div class="col-md-4 ml-auto mr-auto text-center" *ngFor="let item of properties">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ item.urlimage }}" [routerLink]="[ '/view-properties', item.id] " class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color:rgb(0, 0, 0); font-weight:bold;">{{ item.price }}</h5>
+                        <p class="card-text" style="color:rgb(0, 0, 0);">{{ item.textProperties }}</p>
+                    </div>
+                    <div class="card-body">
+                        <a href="https://wa.link/as98rv" class="btn btn-neutral btn-round" target="_blank" style="color:rgb(0, 0, 0); font-weight:bold;">Contactar por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+            <br/><br/><br/><br/>
+        </div>
+    </div>
+    <br/>
+    <br/>
+</div>

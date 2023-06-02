@@ -1,0 +1,39 @@
+<div class="wrapper">
+    <div class="page-header page-header-xs" style="background-image: url('./assets/img/fondo-onix.jpg');">
+        <div class="filter"></div>
+    </div>
+    <div class="container">
+        <br/>
+        <div class="row">
+            <div class="col-md-5 text-center" style="padding-bottom: 30px;">
+                <header>
+                    <h5 class="text-center font-weight-bold">Descripción general</h5>
+                </header>
+                <br/>
+                <article>
+                    <p class="card-text">{{ titleProperties }}</p>
+                    <p class="card-title font-weight-bold">{{ valuePropertie }}</p>
+                    <br/>
+                    <p class="card-text">{{ description }}</p>
+                    <br/>
+                </article>
+                <a href="https://wa.link/as98rv" class="btn-whatsapp" target="_blank" target="_blank">Contactar por WhatsApp</a>
+            </div>
+            <br/>
+            <br/>
+            <div class="col-md-7">
+                <!-- <div class="container-fluid">
+                    <ngb-carousel>
+                        <ng-template ngbSlide *ngFor="let item of viewDetailsPro">
+                            <img src="{{item.img}}" alt="Slide 1" class="d-block">
+                        </ng-template>
+                    </ngb-carousel>
+                </div> -->
+
+                <section>
+                    <img *ngFor="let item of viewDetailsPro" src="{{item.img}}">
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

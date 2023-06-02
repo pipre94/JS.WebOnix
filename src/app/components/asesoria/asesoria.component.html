@@ -1,0 +1,52 @@
+<div class="wrapper">
+    <div div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/fondo-onix.jpg');">
+        <!-- <video autoplay muted loop id="myVideo">
+            <source src="assets/img/intro.mp4" type="video/mp4">
+          </video> -->
+        <div class="filter"></div>
+    </div>
+    <div class="container">
+        <h1 class="text-center" style="color:rgb(0, 0, 0); font-weight:bold; ">ASESORIA INMOBILIARIA</h1>
+        <br/>
+        <p> Nuestra capacidad profesional y especialista en el área del saber jurídico, planeación y desarrollo territorial, nos permite proporcionar una amplia gama de servicios, brindando consultoría, asesoría, acompañamiento permanente y protección legal
+            a todos nuestros usuarios estableciendo soluciones a cualquier asunto de carácter urbano e inmobiliario, enfocados en la prevención y gestión del ámbito jurídico legal y organizacional. Nuestra firma Ofrece asesoría tanto a personas naturales
+            y jurídicas de derecho privado y públicos.
+        </p>
+        <br/><br/>
+        <div class="row">
+            <div class="col-md-6 ml-auto mr-auto text-center">
+                <div class="card page-carousel">
+                    <ngb-carousel>
+                        <ng-template ngbSlide>
+                            <img src="assets/img/asesoria-inmo.jpg" alt=" ">
+                        </ng-template>
+                    </ngb-carousel>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+                <div class="card card-register">
+                    <h3 class="title">¿Tiene preguntas? Comuníquese con nuestro equipo de Ventas de inmediato.</h3>
+                    <form class="register-form">
+                        <label class="title">Nombre completo</label>
+                        <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                            <input type="text" class="form-control" placeholder="Nombre completo" (focus)="focus=true" (blur)="focus=false">
+                        </div>
+                        <label class="title">Correo electronico</label>
+                        <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                            <input type="text" class="form-control" placeholder="Correo electronico" (focus)="focus=true" (blur)="focus=false">
+                        </div>
+
+                        <label class="title">Celular</label>
+                        <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                            <input type="text" class="form-control" placeholder="Celular" (focus)="focus1=true" (blur)="focus1=false">
+                        </div>
+                        <button class="btn btn-succes btn-block btn-round">Envíar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="https://wa.link/as98rv" class="btn-wsp" target="_blank">
+        <i class="fa fa-whatsapp icono"></i>
+    </a>
+</div>
