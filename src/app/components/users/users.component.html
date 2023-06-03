@@ -1,0 +1,73 @@
+<div class="wrapper">
+    <div div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/fondo-onix.jpg');">
+        <!-- <video autoplay muted loop id="myVideo">
+            <source src="assets/img/intro.mp4" type="video/mp4">
+          </video> -->
+        <div class="filter"></div>
+    </div>
+    <div class="container">
+        <h1 class="text-center" style="color:rgb(0, 0, 0); font-weight:bold; ">GESTIÓN USUARIOS</h1>
+        <br/>
+        <p>
+        </p>
+        <br/>
+        <button type="button" class="btn btn-success" (click)="ocultarItem(0,0)">Adicionar Usuario</button>
+        <button type="button" class="btn btn-info" (click)="ocultarItem(1,0)">Ver Registros</button>
+        <br/>
+        <br/>
+        <table class="table" *ngIf="hidenTable">
+            <thead>
+              <tr>
+                <th scope="col">USUARIO</th>
+                <th scope="col">CONTRASEÑA</th>
+                <th scope="col">NOMBRE USUARIO</th>
+                <th scope="col">CORREO</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of listuser">
+                <th>{{item.username}}</th>
+                <td>{{item.password}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.mail}}</td>
+                <td scope="row">
+                    <button class="btn btn-warning btn-just-icon" data-toggle="tooltip" data-placement="bottom" title="Editar" (click)="ocultarItem(2,item.id)">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn-danger btn-just-icon" data-toggle="tooltip" data-placement="bottom" title="Eliminar" (click)="deleteUserDb(item.id)">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    </button>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+        <div class="row" *ngIf="hidenForm">
+            <h3>Adicionar nuevo usuario</h3>
+            <form (ngSubmit)="onSubmit()">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="username">Usuario</label>
+                        <input type="text" class="form-control" id="username" name="username" [(ngModel)]="addUser.username" required>
+                    </div>
+              
+                    <div class="form-group col-md-6">
+                        <label for="password">Constraseña</label>
+                        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="addUser.password" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="name">Nombre del usuario</label>
+                        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="addUser.name" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="email">Correo electronico</label>
+                      <input type="email" class="form-control" id="email" name="email" [(ngModel)]="addUser.mail" required>
+                    </div>
+                </div>
+                <br/>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>                    
+        </div>       
+    </div>
+</div>

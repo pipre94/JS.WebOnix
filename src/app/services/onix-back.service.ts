@@ -7,10 +7,31 @@ import { Properties } from 'app/interfaces/properties';
   providedIn: 'root'
 })
 export class OnixBackService {
-  BASE_URL: string = 'http://localhost:3000';
+  // BASE_URL: string = 'http://localhost:8000';
+  BASE_URL: string = 'https://api.constructoraonix.com.co';
   constructor(private http: HttpClient) { }
 
   getProperties(): Observable<Properties[]>{
-    return this.http.get<Properties[]>(`${this.BASE_URL}/properties`);
+    return this.http.get<Properties[]>(`${this.BASE_URL}/api/properties`);
+  }
+
+  getUser(): Observable<any[]>{
+    return this.http.get<any[]>(`${this.BASE_URL}/api/user`);
+  }
+
+  getUserById(idUser): Observable<any[]>{
+    return this.http.get<any[]>(`${this.BASE_URL}/api/user/${idUser}`);
+  }
+
+  addUser(adduser){
+    return this.http.post(`${this.BASE_URL}/api/user`, adduser);
+  }
+
+  updateUser(idUser,adduser){
+    return this.http.put(`${this.BASE_URL}/api/user/${idUser}`,adduser);
+  }
+
+  deleteUser(idUser){
+    return this.http.delete(`${this.BASE_URL}/api/user/${idUser}`);
   }
 }
