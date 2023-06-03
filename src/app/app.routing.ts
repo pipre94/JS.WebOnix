@@ -12,6 +12,10 @@ import { OurPropertiesComponent } from './components/our-properties/our-properti
 import { OurProjectsComponent } from './components/our-projects/our-projects.component'
 import { AsesoriaComponent } from './components/asesoria/asesoria.component';
 import { ViewPropertiesComponent } from './components/our-properties/view-properties/view-properties.component';
+import { AddPropertiesComponent } from './components/add-properties/add-properties.component';
+import { UsersComponent } from './components/users/users.component';
+import { TextGeneralComponent } from './components/text-general/text-general.component';
+import { InfoFormsComponent } from './components/info-forms/info-forms.component';
 
 const routes: Routes =[
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -23,6 +27,10 @@ const routes: Routes =[
     { path: 'advice',      component: AsesoriaComponent },
     { path: 'our-projects',      component: OurProjectsComponent },
     { path: 'view-properties/:id',      component: ViewPropertiesComponent },
+    { path: 'add-properties',      component: AddPropertiesComponent },
+    { path: 'users',      component: UsersComponent },
+    { path: 'text-general',      component: TextGeneralComponent },
+    { path: 'info-forms',      component: InfoFormsComponent },
 ];
 
 @NgModule({

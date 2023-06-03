@@ -22,6 +22,10 @@ import { RealEstateComponent } from './real-estate/real-estate.component';
 import { AsesoriaComponent } from './asesoria/asesoria.component';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { ViewPropertiesComponent } from './our-properties/view-properties/view-properties.component';
+import { UsersComponent } from './users/users.component';
+import { AddPropertiesComponent } from './add-properties/add-properties.component';
+import { TextGeneralComponent } from './text-general/text-general.component';
+import { InfoFormsComponent } from './info-forms/info-forms.component';
 
 @NgModule({
     imports: [
@@ -49,6 +53,10 @@ import { ViewPropertiesComponent } from './our-properties/view-properties/view-p
         RealEstateComponent,
         AsesoriaComponent,
         ViewPropertiesComponent,
+        UsersComponent,
+        AddPropertiesComponent,
+        TextGeneralComponent,
+        InfoFormsComponent,
     ],
     entryComponents: [NgbdModalContent],
     exports:[ ComponentsComponent,NgbdModalComponent ]

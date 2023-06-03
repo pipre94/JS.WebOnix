@@ -27,7 +27,6 @@ export class OurPropertiesComponent implements OnInit {
         ,
       (error) => {
         console.error(error);
-      }
-      )
+      });
   }
 }
