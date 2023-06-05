@@ -4,5 +4,5 @@ export interface Properties{
     price: string;
     details: string;
     urlimage : string;
-    viewProperties: string[];
+    viewProperties: string;
 }

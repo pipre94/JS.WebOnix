@@ -10,10 +10,7 @@ export class OnixBackService {
   // BASE_URL: string = 'http://localhost:8000';
   BASE_URL: string = 'https://api.constructoraonix.com.co';
   constructor(private http: HttpClient) { }
-
-  getProperties(): Observable<Properties[]>{
-    return this.http.get<Properties[]>(`${this.BASE_URL}/api/properties`);
-  }
+  
 
   getUser(): Observable<any[]>{
     return this.http.get<any[]>(`${this.BASE_URL}/api/user`);

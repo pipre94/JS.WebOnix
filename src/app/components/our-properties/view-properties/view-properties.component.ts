@@ -16,8 +16,8 @@ export class ViewPropertiesComponent implements OnInit {
   valuePropertie: string;
   description: string;
   varDataItems: Properties[];
-  viewDetailsPro: string[];
-  jsonreceptor: any[];
+  viewDetailsPro: any[];
+  jsonreceptor;
 
   constructor(private route: ActivatedRoute, private propertiesServices: OnixBackService) {}
 
@@ -31,12 +31,11 @@ export class ViewPropertiesComponent implements OnInit {
     for (const key in this.varDataItems) {
       if (this.varDataItems.hasOwnProperty(key)) {
         const value = this.varDataItems[key];
-        console.log(value);
         if (idProperties == value.id) {
           this.titleProperties = value.textProperties;
           this.valuePropertie = value.price;
           this.description = value.details;
-          this.viewDetailsPro = value.viewProperties;
+          this.viewDetailsPro = JSON.parse(value.viewProperties);
         }
       }
     }

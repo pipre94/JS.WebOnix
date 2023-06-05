@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { OnixBackService } from "app/services/onix-back.service";
 import { Properties } from 'app/interfaces/properties';
+import { OnixPropertiesService } from "app/services/onix-properties.service";
 
 @Component({
   selector: "app-our-properties",
@@ -11,7 +11,7 @@ export class OurPropertiesComponent implements OnInit {
   public varDataItems: any[];
   public properties: Properties[];
 
-  constructor(private propertiesServices: OnixBackService) {}
+  constructor(private propertiesServices: OnixPropertiesService) {}
 
   ngOnInit(): void {
     this.getProperties();

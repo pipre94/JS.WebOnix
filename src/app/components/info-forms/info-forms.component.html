@@ -1,1 +1,39 @@
-<p>info-forms works!</p>
+<div class="wrapper">
+    <div div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/fondo-onix.jpg');">        
+        <div class="filter"></div>
+    </div>
+    <div class="container">
+        <h1 class="text-center" style="color:rgb(0, 0, 0); font-weight:bold; ">INFORMACIÓN DE FORMULARIOS</h1>
+        <br/>
+        <br/>
+        <br/>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">SECCIÓN</th>
+                <th scope="col">CORREO</th>
+                <th scope="col">NOMBRE COMPLETO</th>
+                <th scope="col">PREGUNTA</th>
+                <th scope="col">TELEFONO</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of listInfo">
+                <th>{{item.idsection}}</th>
+                <td>{{item.email}}</td>
+                <td>{{item.fullname}}</td>
+                <td>{{item.information}}</td>
+                <td>{{item.phone}}
+                  <a [href]="getWhatsAppLink(item.phone)" target="_blank"><i class="fa fa-whatsapp icono" aria-hidden="true"></i>
+                  </a>
+                </td>
+                <td scope="row">
+                    <button class="btn btn-danger btn-just-icon" data-toggle="tooltip" data-placement="bottom" title="Eliminar" (click)="deleteInfoForms(item.id)">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    </button>
+                </td>
+              </tr>
+            </tbody>
+        </table>     
+    </div>
+</div>
