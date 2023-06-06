@@ -20,6 +20,10 @@ export class OnixBackService {
     return this.http.get<any[]>(`${this.BASE_URL}/api/user/${idUser}`);
   }
 
+  getUserByUser(userName): Observable<any[]>{
+    return this.http.get<any[]>(`${this.BASE_URL}/api/username/${userName}`);
+  }
+
   addUser(adduser){
     return this.http.post(`${this.BASE_URL}/api/user`, adduser);
   }

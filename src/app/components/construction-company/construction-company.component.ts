@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./construction-company.component.scss']
 })
 export class ConstructionCompanyComponent implements OnInit {
-
+  focus: any;
+  focus1: any;
   constructor() { }
 
   ngOnInit(): void {

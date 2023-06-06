@@ -1,0 +1,76 @@
+<div class="wrapper">
+    <div class="page-header section-dark">
+        <video autoplay muted loop id="myVideo">
+            <source src="assets/img/intro.mp4" type="video/mp4">
+          </video>
+        <div class="filter"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mr-auto ml-auto"></div>
+                    <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+                      <div class="card card-register">
+                          <h3 style="color: black; text-align: center;" >Inicio Portal Administrador</h3>
+                          <br/>
+                          <br/>
+                          <form class="register-form" (ngSubmit)="onSubmit()" *ngIf="!isNewPassword">
+                              <label style="color: black; text-align:center">Usuario</label>
+                              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                      <i class="nc-icon nc-email-85"></i>
+                                  </span>
+                                </div>
+
+                                <input type="text" class="form-control" id="username" name="username" [(ngModel)]="addUser.username" required>
+                              </div>
+
+                              <label style="color: black; text-align:center">Contraseña</label>
+                              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                      <i class="nc-icon nc-key-25"></i>
+                                  </span>
+                                </div>
+                                <input type="password" class="form-control" id="password" name="password" [(ngModel)]="addUser.password" required>
+                              </div>
+                              <div style="text-align:center">
+                                  <button class="btn btn-primary btn-round">Inciar sesión</button>
+                              <a class="btn btn-link btn-info" (click)="newPassword()">¿Olvidaste tu contraseña?</a>
+                              </div>
+                          </form>
+                          <form class="register-form" (ngSubmit)="updatePassword()" *ngIf="isNewPassword">
+                            <label style="color: black; text-align:center">Usuario</label>
+                            <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="nc-icon nc-email-85"></i>
+                                </span>
+                              </div>
+
+                              <input type="text" class="form-control" id="username" name="username" [(ngModel)]="addUser.username" required>
+                            </div>
+
+                            <label style="color: black; text-align:center">Nueva Contraseña</label>
+                            <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="nc-icon nc-key-25"></i>
+                                </span>
+                              </div>
+                              <input type="password" class="form-control" id="password" name="password" [(ngModel)]="addUser.password" required>
+                            </div>
+                            <div style="text-align:center">
+                                <button class="btn btn-primary btn-round">Guardar</button>
+                                <a class="btn btn-link btn-danger" (click)="volver()">Regresar</a>
+                            </div>
+                        </form>
+                      </div>
+                    </div>
+                </div>
+                <br/><br/>
+                <div class="footer register-footer text-center">
+                    <h6>&copy;{{test | date: 'yyyy'}}, BY GRUPO INMOBILIARIO ONIX</h6>
+                </div>
+            </div>
+    </div>
+</div>
