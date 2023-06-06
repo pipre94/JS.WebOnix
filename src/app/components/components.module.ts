@@ -26,6 +26,8 @@ import { UsersComponent } from './users/users.component';
 import { AddPropertiesComponent } from './add-properties/add-properties.component';
 import { TextGeneralComponent } from './text-general/text-general.component';
 import { InfoFormsComponent } from './info-forms/info-forms.component';
+import { SignupComponent } from './signup/signup.component';
+import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 
 @NgModule({
     imports: [
@@ -57,6 +59,8 @@ import { InfoFormsComponent } from './info-forms/info-forms.component';
         AddPropertiesComponent,
         TextGeneralComponent,
         InfoFormsComponent,
+        SignupComponent,
+        AdminMenuComponent
     ],
     entryComponents: [NgbdModalContent],
     exports:[ ComponentsComponent,NgbdModalComponent ]

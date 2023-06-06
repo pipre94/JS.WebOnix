@@ -25,10 +25,10 @@ export class UsersComponent implements OnInit {
   }
 
   onSubmit(){
-    if(this.addUser.id == undefined ){
+    const idUser = this.addUser.id;
+    if(idUser == undefined ){
       this.addUserDb(this.addUser); 
     }else{
-      const idUser = this.addUser.id;
       this.updateUserDb(idUser,this.addUser);
       console.log(this.addUser.id);      
     }

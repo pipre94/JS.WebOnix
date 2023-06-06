@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 
 import { LandingComponent } from './landing/landing.component';
 import { ProfileComponent } from './profile/profile.component';
-import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
     imports: [
@@ -17,7 +16,6 @@ import { SignupComponent } from './signup/signup.component';
     ],
     declarations: [
         LandingComponent,
-        SignupComponent,
         ProfileComponent
     ]
 })

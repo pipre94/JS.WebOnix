@@ -26,21 +26,24 @@
             <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
                 <div class="card card-register">
                     <h3 class="title">¿Tiene preguntas? Comuníquese con nuestro equipo de Ventas de inmediato.</h3>
-                    <form class="register-form">
+                    <form class="register-form" (ngSubmit)="addInformationSection()">
                         <label class="title">Nombre completo</label>
-                        <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
-                            <input type="text" class="form-control" placeholder="Nombre completo" (focus)="focus=true" (blur)="focus=false">
+                        <div class="input-group form-group-no-border">
+                            <input type="text" class="form-control" placeholder="Nombre completo" [(ngModel)]="addInformation.fullname" required>
                         </div>
                         <label class="title">Correo electronico</label>
+                        <div class="input-group form-group-no-border">
+                            <input type="text" class="form-control" placeholder="Correo electronico" [(ngModel)]="addInformation.email" required>
+                        </div>
+                        <label class="title">Escribenos tu pregunta</label>
                         <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
-                            <input type="text" class="form-control" placeholder="Correo electronico" (focus)="focus=true" (blur)="focus=false">
+                            <input type="text" class="form-control" placeholder="pregunta" [(ngModel)]="addInformation.information">
                         </div>
-
                         <label class="title">Celular</label>
-                        <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
-                            <input type="text" class="form-control" placeholder="Celular" (focus)="focus1=true" (blur)="focus1=false">
+                        <div class="input-group form-group-no-border">
+                            <input type="text" class="form-control" placeholder="Celular" [(ngModel)]="addInformation.phone" required>
                         </div>
-                        <button class="btn btn-succes btn-block btn-round">Envíar</button>
+                        <button type="submit" class="btn btn-succes btn-block btn-round">Envíar</button>
                     </form>
                 </div>
             </div>
