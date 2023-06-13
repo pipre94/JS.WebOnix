@@ -10,6 +10,7 @@ import { OnixPropertiesService } from "app/services/onix-properties.service";
 export class OurPropertiesComponent implements OnInit {
   public varDataItems: any[];
   public properties: Properties[];
+  jsonImg:any[];
 
   constructor(private propertiesServices: OnixPropertiesService) {}
 
@@ -22,6 +23,13 @@ export class OurPropertiesComponent implements OnInit {
       (
         (res) => {
           this.properties = res;
+          this.properties.forEach(element => {
+            // if(element.textProperties == "asdas"){
+              this.jsonImg = JSON.parse(element.urlimage);
+              const url = this.jsonImg[0].imgUrl
+              element.urlimage = url;
+            // }
+          });
           localStorage.setItem('JsonProperties', JSON.stringify(this.properties));
         }
         ,

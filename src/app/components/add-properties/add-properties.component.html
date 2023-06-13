@@ -1,1 +1,82 @@
-<p>add-properties works!</p>
+<div class="wrapper">
+    <div div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/fondo-onix.jpg');">
+        <!-- <video autoplay muted loop id="myVideo">
+            <source src="assets/img/intro.mp4" type="video/mp4">
+          </video> -->
+        <div class="filter"></div>
+    </div>
+    <div class="container">
+        <h1 class="text-center" style="color:rgb(0, 0, 0); font-weight:bold; ">GESTIÓN PROPIEDADES</h1>
+        <br/>
+        <p>
+        </p>
+        <br/>
+        <button type="button" class="btn btn-success" (click)="ocultarItem(0,0)">Adicionar Propiedad</button>
+        <button type="button" class="btn btn-info" (click)="ocultarItem(1,0)">Ver Registros</button>
+        <br/>
+        <br/>
+        <table class="table" *ngIf="hidenTable">
+            <thead>
+              <tr>
+                <th scope="col">Texto principal</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Detalles propiedad</th>
+                <th scope="col">Imagen principal</th>
+                <!-- <th scope="col">Imagenes detalladas</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of listProperties">
+                <th>{{item.textProperties}}</th>
+                <td>{{item.price}}</td>
+                <td>{{item.details}}</td>
+                <!-- <td>{{item.urlimage}}</td> -->
+                <!-- <img [src]="item.urlimage" style="width: 10%; height: 10%;"/> -->
+                <td><img [src]="item.urlimage" style="width: 50%; height: 50%;"/></td>
+                <td scope="row">
+                    <button class="btn btn-warning btn-just-icon" data-toggle="tooltip" data-placement="bottom" title="Editar" (click)="ocultarItem(2,item.id)">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn-danger btn-just-icon" data-toggle="tooltip" data-placement="bottom" title="Eliminar" (click)="deleteUserDb(item.id)">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    </button>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+        <div class="row" *ngIf="hidenForm">
+            <h3> {{ actionsPropertie }}</h3>
+            <form (ngSubmit)="onSubmit()">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="textProperties">Titulo principal</label>
+                        <input type="text" class="form-control" id="textProperties" name="textProperties" [(ngModel)]="addPropertie.textProperties" required>
+                    </div>              
+                    <div class="form-group col-md-6">
+                        <label for="price">Valor de la propiedad</label>
+                        <input type="text" class="form-control" id="price" name="price" [(ngModel)]="addPropertie.price" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="details">Detalles de la propiedad</label>
+                        <input type="text" class="form-control" id="details" name="details" [(ngModel)]="addPropertie.details" required>
+                    </div>
+                    <br/>
+                    <div class="form-group col-md-6">
+                        <label for="file">Imagen principal</label>
+                        <input type="file" class="form-control" (change)="fileChangeEvent($event)" />
+                    </div>
+                    <br/>
+                    <div class="form-group col-md-6">
+                        <label for="file">Imagenes detalladas de propiedad</label>
+                        <input type="file" class="form-control" (change)="onFileSelected($event)" multiple/>
+                    </div>
+                </div>
+                <br/>
+                <button type="submit" class="btn btn-primary" [disabled]="!abuttoon">Guardar</button>
+            </form>                    
+            <!-- <img [src]="croppedImage" style="width: 10%; height: 10%;"/> -->
+        </div>    
+    </div>
+</div>

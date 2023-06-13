@@ -18,48 +18,23 @@
                 <br/>
                 <p> Nuestra visión inmobiliaria nos permite proporcionar a las empresas y entidades contratantes una amplia gama de servicios relacionados con soluciones urbanas e inmobiliarias, en el campo de la planeación, el diseño y desarrollo sostenible.
                     El escenario actual del país y en particular de los núcleos urbanos sugieren un sin número de problemáticas de todo tipo. las cuales deben ser analizadas en su contexto permitiendo establecer el origen de estos y sus alternativas de
-                    solución pensadas siempre desde una óptica académica, practica y realizable. Servicios Integrales
+                    solución pensadas siempre desde una óptica académica, practica y realizable. Servicios Integrales.
                 </p>
                 <br/>
-                <!-- <h3 style="color:rgb(0, 0, 0); font-weight:bold; ">Asesoría Jurídica Inmobiliaria</h3>
-                <br/>
-                <p>
-                    Nuestra capacidad profesional y especialista en el área del saber jurídico, planeación y desarrollo territorial, nos permite proporcionar una amplia gama de servicios, brindando consultoría, asesoría, acompañamiento permanente y protección legal a todos
-                    nuestros usuarios estableciendo soluciones a cualquier asunto de carácter urbano e inmobiliario, enfocados en la prevención y gestión del ámbito jurídico legal y organizacional. Nuestra firma Ofrece asesoría tanto a personas naturales
-                    y jurídicas de derecho privado y público en temas relativos a:
-                </p> -->
             </div>
 
             <div class="col-md-6 ml-auto mr-auto text-center">
-                <div class="card page-carousel">
-                    <ngb-carousel>
-                        <ng-template ngbSlide>
-                            <img src="./assets/img/asesoria.jpg" alt="Random first slide">
-                            <div class="carousel-caption">
-                            </div>
-                        </ng-template>
-                    </ngb-carousel>
-                </div>
+                <section>
+                    <img src="./assets/img/asesoria.jpg" alt="">
+                </section>
             </div>
             <br/>
             <br/>
-            <!-- <div class="col-md-12 ml-auto mr-auto text-center">
-                <h3 class="text-center" style="color:rgb(0, 0, 0); font-weight:bold; ">Brochure empresarial</h3>
-                <br/><br/>
-                <iframe width="100%" height="900" style="visibility:visible" src="./assets/pdf/broucher.pdf">
-                </iframe>
-            </div> -->
             <!-- </div> -->
             <div class="col-md-6 ml-auto mr-auto text-center">
-                <div class="card page-carousel">
-                    <ngb-carousel>
-                        <ng-template ngbSlide>
-                            <img src="./assets/img/asesoria-inmobiliaria.jpg" alt="Random second slide">
-                            <div class="carousel-caption">
-                            </div>
-                        </ng-template>
-                    </ngb-carousel>
-                </div>
+                <section>
+                    <img src="./assets/img/asesoria-inmobiliaria.jpg" alt="">
+                </section>
             </div>
             <!-- <div class="row"> -->
             <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
@@ -74,13 +49,14 @@
                         <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                             <input type="text" class="form-control" placeholder="Correo electronico" [(ngModel)]="addInformation.email">
                         </div>
-                        <label class="title">Escribenos tu pregunta</label>
-                        <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
-                            <input type="text" class="form-control" placeholder="pregunta" [(ngModel)]="addInformation.information">
-                        </div>
                         <label class="title">Celular</label>
                         <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
-                            <input type="number" class="form-control" placeholder="Celular" [(ngModel)]="addInformation.phone">
+                            <input type="text" class="form-control" (keypress)="validateFormat($event)" placeholder="Celular" [(ngModel)]="addInformation.phone">
+                        </div>
+                        <label class="title">Escribenos tu pregunta</label>
+                        <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                            <!-- <input type="text" class="form-control" placeholder="pregunta" [(ngModel)]="addInformation.information"> -->
+                            <textarea class="form-control" rows="4" placeholder="Cuéntanos tu pregunta..." [(ngModel)]="addInformation.information"></textarea>
                         </div>
                         <button class="btn btn-succes btn-block btn-round">Envíar</button>
                     </form>

@@ -15,4 +15,20 @@ export class OnixPropertiesService {
   getProperties(): Observable<Properties[]>{
     return this.http.get<Properties[]>(`${this.BASE_URL}/api/properties`);
   }
+
+  addProperties(infoProperties){
+    return this.http.post(`${this.BASE_URL}/api/properties`, infoProperties);
+  }
+
+  updateProperties(idProp,infoProperties){
+    return this.http.put(`${this.BASE_URL}/api/properties/${idProp}`, infoProperties);
+  }
+
+  getPropertiesById(idProp): Observable<Properties[]>{
+    return this.http.get<Properties[]>(`${this.BASE_URL}/api/properties/${idProp}`);
+  }
+
+  deleteProperties(idProp){
+    return this.http.delete(`${this.BASE_URL}/api/properties/${idProp}`);
+  }
 }

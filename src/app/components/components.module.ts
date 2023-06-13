@@ -28,6 +28,7 @@ import { TextGeneralComponent } from './text-general/text-general.component';
 import { InfoFormsComponent } from './info-forms/info-forms.component';
 import { SignupComponent } from './signup/signup.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
+import {GoogleMapsModule} from '@angular/google-maps'; 
 
 @NgModule({
     imports: [
@@ -37,7 +38,8 @@ import { AdminMenuComponent } from './admin-menu/admin-menu.component';
         NouisliderModule,
         RouterModule,
         JwBootstrapSwitchNg2Module,
-        NgImageSliderModule
+        NgImageSliderModule,
+        GoogleMapsModule
     ],
     declarations: [
         ComponentsComponent,
