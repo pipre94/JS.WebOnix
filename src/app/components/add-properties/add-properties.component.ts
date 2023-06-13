@@ -44,7 +44,7 @@ export class AddPropertiesComponent implements OnInit {
     const imgRef = ref(this.storage, `properties/${imagen.name}`);
     uploadBytes(imgRef, imagen);     
     this.principalPropertie =  await this.getImages(imagen.name);
-    alert('Imagenen han sido cargadas!');
+    alert('La imagen ha sido cargada!');
     this.abuttoon = true;
   }
 
@@ -90,7 +90,7 @@ export class AddPropertiesComponent implements OnInit {
       if(promises != null){
         const viewProperties = await Promise.all(promises);
         this.viewProperties.push(...viewProperties);
-        alert('Imagenes han sido cargadas!');
+        alert('Las imagenes han sido cargadas!');
         this.abuttoon = true;
       }
     } catch (error) {

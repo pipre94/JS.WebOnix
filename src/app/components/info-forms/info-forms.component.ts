@@ -35,7 +35,10 @@ export class InfoFormsComponent implements OnInit {
           break;
           case Section.RealEstateConsulting.toString():
             element.idsection = NameSection.RealEstateConsulting;                
-            break;    
+          break;
+          case Section.Construction.toString():
+            element.idsection = NameSection.Construction;                
+          break;     
             default:
           break;
           

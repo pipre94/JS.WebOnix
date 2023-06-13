@@ -123,29 +123,29 @@
                 </div>
                 <div class="col-md-7 mr-auto ml-auto">
                     <h2 class="text-center">Contáctanos</h2>
-                    <form class="contact-form">
+                    <form class="contact-form" (ngSubmit)="addInformationSection()">
                         <div class="row">
                             <div class="col-md-6">
                                 <label>Nombre</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Nombre">
+                                    <input type="text" class="form-control" placeholder="Nombre" [(ngModel)]="addInformation.fullname">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <label>Celular</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Celular">
+                                    <input type="text" class="form-control" placeholder="Celular" (keypress)="validateFormat($event)" [(ngModel)]="addInformation.phone">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <label>Correo electrónico</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Correo electrónico">
+                                    <input type="text" class="form-control" placeholder="Correo electrónico" [(ngModel)]="addInformation.email">
                                 </div>
                             </div>
                         </div>
                         <label>Message</label>
-                        <textarea class="form-control" rows="4" placeholder="Cuéntanos tu pregunta..."></textarea>
+                        <textarea class="form-control" rows="4" placeholder="Cuéntanos tu pregunta..." [(ngModel)]="addInformation.information"></textarea>
                         <div class="row">
                             <div class="col-md-4 mr-auto ml-auto">
                                 <button class="btn btn-danger btn-lg btn-fill">Enviar mensaje</button>
