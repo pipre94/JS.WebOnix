@@ -1,4 +1,4 @@
-<div class="page-header" data-parallax="true">
+<div class="page-header section-dark" data-parallax="true">
     <video autoplay muted loop id="myVideo">
         <source src="assets/img/constructora.mp4" type="video/mp4">
       </video>
@@ -6,14 +6,14 @@
     <div class="container">
         <div class="motto text-center">
             <h1 class="presentation-title">Constructora Onix</h1>
-            <!-- <h3 class="presentation-title">Start designing your landing page here.</h3> -->
+            <h5 class="presentation-subtitle text-center">Cumplir sueños, es el motor que nos inspira cada día para continuar.</h5>
             <br />
-            <!-- <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn btn-outline-neutral btn-round"><i class="fa fa-play"></i>Watch video</a>
-            <button type="button" class="btn btn-outline-neutral btn-round">Download</button> -->
+            <button type="button" class="btn btn-outline-neutral btn-round" (click)="scrollToDiv(1)">CONTÁCTANOS</button>
+            <a (click)="scrollToDiv(2)" class="btn btn-outline-neutral btn-round"><i class="fa fa-play"></i>VER MÁS</a>
         </div>
     </div>
 </div>
-<div class="main">
+<div class="main" id="masinfo">
     <div class="section text-center">
     <div class="container">
         <div class="row">
@@ -36,154 +36,72 @@
             </div>
         </div>
         <br/><br/>
-        <div class="card page-carousel">
-            <ngb-carousel>
-                <ng-template ngbSlide>
-                    <img src="./assets/img/img3.jpg" alt="Random second slide">
-                    <div class="carousel-caption">
-                    </div>
-                </ng-template>
-                <ng-template ngbSlide>
-                    <img src="./assets/img/img4.jpg" alt="Random third slide">
-                    <div class="carousel-caption">
-                    </div>
-                </ng-template>
-                <ng-template ngbSlide>
-                    <img src="./assets/img/img5.jpg" alt="Random third slide">
-                    <div class="carousel-caption">
-                    </div>
-                </ng-template>
-            </ngb-carousel>
-        </div>
-
-        <br/><br/>
         <div class="row">
-            <div class="col-md-3">
-                <div class="info">
-                    <div class="icon icon-danger">
-                        <i class="nc-icon nc-album-2"></i>
-                    </div>
-                    <div class="description">
-                        <h4 class="info-title">Beautiful Gallery</h4>
-                        <p class="description">Spend your time generating new ideas. You don't have to think of implementing.</p>
-                        <a href="#pkp" class="btn btn-link btn-danger">See more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="info">
-                    <div class="icon icon-danger">
-                        <i class="nc-icon nc-bulb-63"></i>
-                    </div>
-                    <div class="description">
-                        <h4 class="info-title">New Ideas</h4>
-                        <p>Larger, yet dramatically thinner. More powerful, but remarkably power efficient.</p>
-                        <a href="#pkp" class="btn btn-link btn-danger">See more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="info">
-                    <div class="icon icon-danger">
-                        <i class="nc-icon nc-chart-bar-32"></i>
-                    </div>
-                    <div class="description">
-                        <h4 class="info-title">Statistics</h4>
-                        <p>Choose from a veriety of many colors resembling sugar paper pastels.</p>
-                        <a href="#pkp" class="btn btn-link btn-danger">See more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="info">
-                    <div class="icon icon-danger">
-                        <i class="nc-icon nc-sun-fog-29"></i>
-                    </div>
-                    <div class="description">
-                        <h4 class="info-title">Delightful design</h4>
-                        <p>Find unique and handmade delightful designs related items directly from our sellers.</p>
-                        <a href="#pkp" class="btn btn-link btn-danger">See more</a>
-                    </div>
-                </div>
-            </div>
+            <div class="col-md-12 mr-auto ml-auto">
+                <section>
+                    <img *ngFor="let item of viewDetailsPro" src="{{item.img}}">
+                </section>
         </div>
-
+    </div>
+        <br/><br/>
     </div>
 </div>
 
 <div class="main" >
     <div class="section section-dark text-center">
     <div class="container">
-        <h2 class="title">Let's talk about us</h2>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-12">
                 <div class="card card-profile card-plain">
-                    <div class="card-avatar">
-                        <a href="#avatar"><img src="./assets/img/faces/clem-onojeghuo-3.jpg" alt="..."></a>
-                    </div>
                     <div class="card-block">
-                        <a href="#paper-kit">
-                            <div class="author">
-                                <h4 class="card-title">Henry Ford</h4>
-                                <h6 class="card-category">Product Manager</h6>
-                            </div>
-                        </a>
+                        <div class="author">
+                            <h2 class="title">Acerca de nosotros</h2>
+                            <br/>
+                            <h4 class="card-title">Transparencia</h4>
+                            <h4 class="card-title">Ética – Honestidad</h4>
+                            <h4 class="card-title">Profesionalismo – Eﬁciencia</h4>
+                            <h4 class="card-title">pasión-competitividad- Responsabilidad Social.</h4>
+                        </div>
+                        <br/>
                         <p class="card-description text-center">
-                        Teamwork is so important that it is virtually impossible for you to reach the heights of your capabilities or make the money that you want without becoming very good at it.
+                            Ónix grupo inmobiliario es una empresa Nariñense, con espíritu social donde los sueños se cumplen, dedicada a la construcción y comercialización inmobiliaria en el departamento de Nariño.
                         </p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i class="fa fa-twitter"></i></a>
-                        <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i class="fa fa-google-plus"></i></a>
-                        <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i class="fa fa-linkedin"></i></a>
+                        <p class="card-description text-center">
+                            Constituida el 16 de marzo del año 2021, ha desarrollado proyectos de vivienda en el departamento de Nariño, con un gran aporte social para la región, generando empleo, apoyando el desarrollo del comercio, el mejoramiento de la infraestructura y promoviendo el potencial turístico de la región.
+                        </p>
+                        <br/>
+                        <p class="card-description text-center">
+                            Ónix grupo inmobiliario ha logrado consolidarse como una empresa de gran crecimiento en el sector inmobiliario y de la construcción, cumpliendo todas las expectativas en nuestro equipo de trabajo y nuestros clientes, entregando a satisfacción las construcciones y los proyectos inmobiliarios, una de nuestras premisas fundamentales es la innovación; próximamente nuestra empresa ampliara su portafolio de servicios y la cobertura de nivel nacional e internacional.
+                        </p>
+
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
+        </div>
+        <div class="row">
+            <div class="col-md-6">
                 <div class="card card-profile card-plain">
-                    <div class="card-avatar">
-                        <a href="#avatar"><img src="./assets/img/faces/joe-gardner-2.jpg" alt="..."></a>
-                    </div>
                     <div class="card-block">
-                        <a href="#paper-kit">
-                            <div class="author">
-                                <h4 class="card-title">Sophie West</h4>
-                                <h6 class="card-category">Designer</h6>
-                            </div>
-                        </a>
+                        <div class="author">
+                            <h4 class="card-title">Misión</h4>
+                        </div>
                         <p class="card-description text-center">
-                        A group becomes a team when each member is sure enough of himself and his contribution to praise the skill of the others. No one can whistle a symphony. It takes an orchestra to play it.
+                            ONIX GRUPO INMOBILIARIO fundamentados en el reconocimiento y la experiencia, proporciona un asesoramiento integral, a personas y empresas, para que les permita solucionar todas sus necesidades relacionadas con la construcción y el mercado inmobiliario; aportándoles una mayor rentabilidad basada en la responsabilidad y la trasparencia. 
                         </p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i class="fa fa-twitter"></i></a>
-                        <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i class="fa fa-google-plus"></i></a>
-                        <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i class="fa fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="card card-profile card-plain">
-                    <div class="card-avatar">
-                        <a href="#avatar"><img src="./assets/img/faces/erik-lucatero-2.jpg" alt="..."></a>
-                    </div>
                     <div class="card-block">
-                        <a href="#paper-kit">
                             <div class="author">
-                                <h4 class="card-title">Robert Orben</h4>
-                                <h6 class="card-category">Developer</h6>
+                                <h4 class="card-title">Visión</h4>
                             </div>
-                        </a>
                         <p class="card-description text-center">
-                        The strength of the team is each individual member. The strength of each member is the team. If you can laugh together, you can work together, silence isn’t golden, it’s deadly.
+                            Convertirnos en la empresa de referencia del sector inmobiliario y la construcción en el departamento de Nariño, para que las personas que interactúan en este mercado se dirijan a nosotros como primera opción al momento de construir y comercializar inmuebles.
                         </p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i class="fa fa-twitter"></i></a>
-                        <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i class="fa fa-google-plus"></i></a>
-                        <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i class="fa fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
@@ -191,43 +109,108 @@
     </div>
 </div>
 </div>
-
-    <div class="section landing-section">
+    <div class="section landing-section" id="contactanos">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 mr-auto ml-auto">
-                    <h2 class="text-center">Keep in touch?</h2>
+                <div class="col-md-5 mr-auto ml-auto">
+                    <h2 class="text-center">Visítenos</h2>
+                    <h5 class="text-center">Calle 19 #24-52, edificio Nariño Centro, Oficina 507 PASTO,Nariño</h5>
+                    <br/>
+                    <br/>
+                    <section>
+                        <img src="./assets/img/nariñoCentro.JPG">
+                    </section>
+                </div>
+                <div class="col-md-7 mr-auto ml-auto">
+                    <h2 class="text-center">Contáctanos</h2>
                     <form class="contact-form">
                         <div class="row">
                             <div class="col-md-6">
-                                <label>Name</label>
-                                <div class="input-group" [ngClass]="{'input-group-focus':focus===true}">
-                                    <div class="input-group-prepend">
-                                      <span class="input-group-text"><i class="nc-icon nc-single-02"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Name" (focus)="focus=true" (blur)="focus=false" >
+                                <label>Nombre</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Nombre">
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label>Email</label>
-                                <div class="input-group" [ngClass]="{'input-group-focus':focus1===true}">
-                                    <div class="input-group-prepend">
-                                      <span class="input-group-text">  <i class="nc-icon nc-email-85"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Email" (focus)="focus1=true" (blur)="focus1=false" >
+                                <label>Celular</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Celular">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label>Correo electrónico</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Correo electrónico">
                                 </div>
                             </div>
                         </div>
                         <label>Message</label>
-                        <textarea class="form-control" rows="4" placeholder="Tell us your thoughts and feelings..."></textarea>
+                        <textarea class="form-control" rows="4" placeholder="Cuéntanos tu pregunta..."></textarea>
                         <div class="row">
                             <div class="col-md-4 mr-auto ml-auto">
-                                <button class="btn btn-danger btn-lg btn-fill">Send Message</button>
+                                <button class="btn btn-danger btn-lg btn-fill">Enviar mensaje</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="main" >
+        <div class="section section-dark text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card card-profile card-plain">
+                        <div class="card-avatar">
+                            <img src="./assets/img/inicio.png" alt="...">
+                        </div>
+                        <div class="card-block">
+                                <div class="author">
+                                    <h4 class="card-title">CONSTRUCTORA ONIX</h4>
+                                </div>
+                        </div>   
+                    </div>
+                </div>
+    
+                <div class="col-md-4">
+                    <div class="card card-profile card-plain">
+                        <div class="card-block">
+                                <div class="author">
+                                    <h4 class="card-title">VISÍTENOS</h4>
+                                </div>
+                            <p class="card-description text-center">
+                                Calle 19 #24-52, edificio Nariño Centro, Oficina 507 PASTO,Nariño
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-4">
+                    <div class="card card-profile card-plain">
+                        <div class="card-block">
+                            <div class="author">
+                                <h4 class="card-title">CONTÁCTENOS</h4>
+                            </div>
+                            <p class="card-description text-center"> Celular</p>
+                            <p class="card-description text-center">
+                                <a><i class="fa fa-phone-square" aria-hidden="true"></i> 318 696 6126</a>
+                            </p>
+                            <p class="card-description text-center">Correo eléctronico</p>
+                            <p class="card-description text-center">
+                                <a><i class="fa fa-envelope" aria-hidden="true"></i> directorcomercial@constructoraonix.com.co</a>
+                            </p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <p class="card-description text-center">¡Síguenos en nuestras redes sociales!</p>                            
+                            <a href="https://www.youtube.com/@ONIXGrupoInmobiliario" class="btn btn-link btn-just-icon btn-neutral"><i class="fa fa-youtube-play"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=100075448407734" class="btn btn-link btn-just-icon btn-neutral"><i class="fa fa-facebook-square"></i></a>
+                            <a href="https://www.instagram.com/onixgrupoinmobiliario/" class="btn btn-link btn-just-icon btn-neutral"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 </div>

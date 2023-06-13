@@ -13,7 +13,12 @@ import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
 import { NgbdModalComponent } from './components/modal/modal.component';
 import { NgImageSliderModule } from 'ng-image-slider';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage'
+import {GoogleMapsModule} from '@angular/google-maps'; 
+
 
 @NgModule({
   declarations: [
@@ -32,6 +37,9 @@ import { HttpClientModule } from '@angular/common/http'
     NgImageSliderModule,
     NgImageSliderModule,
     HttpClientModule,
+    GoogleMapsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage()),
   ],
   providers: [],
   bootstrap: [AppComponent]

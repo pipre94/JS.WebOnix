@@ -28,52 +28,16 @@
                     en el proyecto, contáctanos al 318 894 9542 – 315 501 0117. ¡NO PIERDAS LA OPORTUNIDAD DE CERRAR EL AÑO HACIENDO UNA GRAN INVERSIÓN!
                 </p>
             </div>
+
             <div class="col-md-7 ml-auto mr-auto text-center">
-                <div class="card page-carousel">
-                    <ngb-carousel>
-                        <ng-template ngbSlide>
-                            <img src="./assets/img/guayabillos.jpg" alt="Random first slide">
-                            <div class="carousel-caption">
-                            </div>
-                        </ng-template>
-                        <ng-template ngbSlide>
-                            <img src="./assets/img/img3.jpg" alt="Random second slide">
-                            <div class="carousel-caption">
-                            </div>
-                        </ng-template>
-                        <ng-template ngbSlide>
-                            <img src="./assets/img/img4.jpg" alt="Random third slide">
-                            <div class="carousel-caption">
-                            </div>
-                        </ng-template>
-                        <ng-template ngbSlide>
-                            <img src="./assets/img/img5.jpg" alt="Random third slide">
-                            <div class="carousel-caption">
-                            </div>
-                        </ng-template>
-                    </ngb-carousel>
-                </div>
+                <section>
+                    <img *ngFor="let item of viewDetailsPro" src="{{item.img}}">
+                </section>
             </div>
             <div class="col-md-7 ml-auto mr-auto text-center">
-                <div class="card page-carousel">
-                    <ngb-carousel>
-                        <ng-template ngbSlide>
-                            <img src="./assets/img/LOGO.png" alt="Random first slide">
-                            <div class="carousel-caption">
-                            </div>
-                        </ng-template>
-                        <ng-template ngbSlide>
-                            <img src="./assets/img/img1.JPG" alt="Random second slide">
-                            <div class="carousel-caption">
-                            </div>
-                        </ng-template>
-                        <ng-template ngbSlide>
-                            <img src="./assets/img/img2.JPG" alt="Random third slide">
-                            <div class="carousel-caption">
-                            </div>
-                        </ng-template>
-                    </ngb-carousel>
-                </div>
+                <section>
+                    <img *ngFor="let item of viewDetailsProM" src="{{item.img}}">
+                </section>
             </div>
             <div class="col-md-5 ml-auto mr-auto text-center">
                 <h2 style="color:rgb(0, 0, 0); font-weight:bold; ">MIRADOR DE GUAYABILLOS</h2>
@@ -98,7 +62,6 @@
         </div>
         <a href="https://wa.link/as98rv" class="btn-wsp" target="_blank">
             <i class="fa fa-whatsapp icono"></i>
-            <span class="mensaje-flotante">¡Pasa el mouse por aquí!</span>
         </a>
     </div>
 </div>
