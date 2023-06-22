@@ -1,10 +1,10 @@
 {
-  "name": "paper-kit-2-angular",
+  "name": "grupo-inmobiliario-onix",
   "version": "1.5.0",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/creativetimofficial/pk2-angular.git"
+    "url": "https://github.com/pipre94/JS.WebOnix.git"
   },
   "scripts": {
     "ng": "ng",
@@ -41,6 +41,7 @@
     "popper.js": "1.16.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
+    "xlsx": "^0.18.5",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
