@@ -18,6 +18,7 @@ export class UsersComponent implements OnInit {
   name:string="";
   mail:string="";
   usuario: any = {};
+  actionsUser;
   constructor(private userService:OnixBackService) { }
 
   ngOnInit(): void {
@@ -27,9 +28,11 @@ export class UsersComponent implements OnInit {
   onSubmit(){
     const idUser = this.addUser.id;
     if(idUser == undefined ){
-      this.addUserDb(this.addUser); 
+      this.addUserDb(this.addUser);
+      alert('¡Usuario adicionado!'); 
     }else{
       this.updateUserDb(idUser,this.addUser);
+      alert("¡Sus cambios se han actualizado!");
       console.log(this.addUser.id);      
     }
   }
@@ -110,6 +113,7 @@ export class UsersComponent implements OnInit {
     switch (value) {
       case 0:
         this.clearItem();
+        this.actionsUser = "Adicionar nuevo usuario";
         this.hidenTable = false;
         this.hidenForm = true;
         break;      
@@ -121,6 +125,7 @@ export class UsersComponent implements OnInit {
         break;
       case 2:
         this.clearItem();
+        this.actionsUser = "Actualizar usuario";
         this.hidenTable = false;
         this.hidenForm = true;
         this.updateUserById(idUser);

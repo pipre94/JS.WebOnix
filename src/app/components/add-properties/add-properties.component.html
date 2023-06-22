@@ -28,10 +28,8 @@
             <tbody>
               <tr *ngFor="let item of listProperties">
                 <th>{{item.textProperties}}</th>
-                <td>{{item.price}}</td>
-                <td>{{item.details}}</td>
-                <!-- <td>{{item.urlimage}}</td> -->
-                <!-- <img [src]="item.urlimage" style="width: 10%; height: 10%;"/> -->
+                <td style="width: 12%;" >{{item.price}}</td>
+                <td style="width: 35%;">{{item.details}}</td>
                 <td><img [src]="item.urlimage" style="width: 50%; height: 50%;"/></td>
                 <td scope="row">
                     <button class="btn btn-warning btn-just-icon" data-toggle="tooltip" data-placement="bottom" title="Editar" (click)="ocultarItem(2,item.id)">
@@ -54,13 +52,13 @@
                     </div>              
                     <div class="form-group col-md-6">
                         <label for="price">Valor de la propiedad</label>
-                        <input type="text" class="form-control" id="price" name="price" [(ngModel)]="addPropertie.price" required>
+                        <input type="text" class="form-control" id="price" name="price" [(ngModel)]="addPropertie.price" (keypress)="validateFormat($event)" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="details">Detalles de la propiedad</label>
-                        <input type="text" class="form-control" id="details" name="details" [(ngModel)]="addPropertie.details" required>
+                        <textarea class="form-control" rows="4" placeholder="..." [(ngModel)]="addPropertie.details"></textarea>
                     </div>
                     <br/>
                     <div class="form-group col-md-6">
@@ -75,8 +73,7 @@
                 </div>
                 <br/>
                 <button type="submit" class="btn btn-primary" [disabled]="!abuttoon">Guardar</button>
-            </form>                    
-            <!-- <img [src]="croppedImage" style="width: 10%; height: 10%;"/> -->
+            </form>
         </div>    
     </div>
 </div>

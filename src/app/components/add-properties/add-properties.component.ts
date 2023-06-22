@@ -5,6 +5,7 @@ import { OnixPropertiesService } from 'app/services/onix-properties.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Storage, ref, uploadBytes, listAll, getDownloadURL } from '@angular/fire/storage';
 import { concat } from 'rxjs';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Component({
   selector: 'app-add-properties',
@@ -24,7 +25,7 @@ export class AddPropertiesComponent implements OnInit {
   viewProperties: any = [];
   viewPro =[];
   principalPropertie: any = [];
-  viewImages: any = [];
+  viewImages;
   url;
   jsonImg:any[];
   abuttoon: boolean= false;
@@ -43,27 +44,23 @@ export class AddPropertiesComponent implements OnInit {
     const imagen = event.target.files[0];
     const imgRef = ref(this.storage, `properties/${imagen.name}`);
     uploadBytes(imgRef, imagen);     
-    this.principalPropertie =  await this.getImages(imagen.name);
-    alert('Imagenen han sido cargadas!');
+    const url =  await this.getImages(imagen.name);
+    const property = {
+            img: url
+          };
+    this.principalPropertie.push(property);
+    alert('La imagen ha sido cargada!');
     this.abuttoon = true;
   }
 
   async getImages(imgName) {
-    this.viewImages = [];
-    const imagesRef = ref(this.storage, 'properties');
-    
+    this.viewImages;
+    const imagesRef = ref(this.storage, 'properties');    
     try {
-      const response = await listAll(imagesRef);
-      
+      const response = await listAll(imagesRef); 
       for (let item of response.items) {
         if (item.name === imgName) {
-          const url = await getDownloadURL(item);
-          console.log(url);
-          const property = {
-            name: item.name,
-            imgUrl: url
-          };
-          this.viewImages.push(property);
+          this.viewImages = await getDownloadURL(item);
         }
       }
       return this.viewImages;
@@ -73,42 +70,65 @@ export class AddPropertiesComponent implements OnInit {
     }
   }
   
-
   async onFileSelected(event: any) {
     this.viewProperties = [];
     this.abuttoon = false;
     const files: FileList = event.target.files;
-  
-    const promises = Array.from(files).map(async (file: File) => {
+    await this.realizarPeticionAsync(files)
+    setTimeout(() => {
+      alert('Las imagenes han sido cargada!');
+      this.abuttoon = true;
+    }, 6000);
+  } 
+
+  realizarPeticionAsync(files){
+    for (let i = 0; i < files.length; i++) {
+      const file: File = files[i];
       const imgRef = ref(this.storage, `properties/${file.name}`);
-      await uploadBytes(imgRef, file).catch(error => console.log(error));
-      return this.getImages(file.name);      
-    });
-    
-  
-    try {
-      if(promises != null){
-        const viewProperties = await Promise.all(promises);
-        this.viewProperties.push(...viewProperties);
-        alert('Imagenes han sido cargadas!');
-        this.abuttoon = true;
-      }
-    } catch (error) {
-      console.log(error);
+      uploadBytes(imgRef, file)
+      .then( async response =>{
+        const url = await this.getImages(file.name);
+        const property = {
+          img: url
+        };
+        this.viewProperties.push(property);
+      })
+      .catch(error => console.log(error));
     }
   }
 
   onSubmit(){
-
     this.addPropertie.urlimage = JSON.stringify(this.principalPropertie);
     this.addPropertie.viewProperties = JSON.stringify(this.viewProperties);
-    console.log(this.addPropertie);
+    console.log(this.viewProperties);
     const idProperti = this.addPropertie.id;
     if(idProperti == undefined ){
-      this.addPropertieDb(this.addPropertie); 
+      if(this.addPropertie.textProperties != undefined && this.addPropertie.price != undefined && this.addPropertie.details != undefined){
+        const data = this.agregarSeparadorMiles(this.addPropertie.price);
+        this.addPropertie.price = `$${data} cop`
+        console.log(this.addPropertie);
+        this.addPropertieDb(this.addPropertie); 
+        alert("¡Propiedad adicionada!");
+
+      }else{
+        alert("¡Digite todos los campos!")
+      }
     }else{
-      this.updateUserDb(idProperti,this.addPropertie);     
+      if(this.addPropertie.textProperties != undefined && this.addPropertie.price != undefined && this.addPropertie.details != undefined){
+        const data = this.agregarSeparadorMiles(this.addPropertie.price);
+        this.addPropertie.price = `$${data} cop`
+        console.log(this.addPropertie);
+        this.updateUserDb(idProperti,this.addPropertie);
+        alert("¡Sus cambios se han actualizado!");
+      }else{
+        alert("¡Digite todos los campos!")
+      }  
     }
+  }
+
+  agregarSeparadorMiles(numeroString: string): string {
+    const numero = parseInt(numeroString, 10); // Convierte la cadena a un número entero
+    return numero.toLocaleString(); // Agrega los separadores de miles al número
   }
 
   clearItem(){
@@ -137,7 +157,7 @@ export class AddPropertiesComponent implements OnInit {
     if (listProperties.viewProperties === '[]') {
       delete listProperties.viewProperties;
     }
-    console.log(listProperties);
+    console.log(listProperties.viewProperties);
     await this.propertiesServ.updateProperties(addPropertie, listProperties).subscribe({
       next: (response) => {
         console.log('la petición fue exitosa')
@@ -170,7 +190,7 @@ export class AddPropertiesComponent implements OnInit {
           this.listProperties = res;
           this.listProperties.forEach(element => {
               this.jsonImg = JSON.parse(element.urlimage);
-              const url = this.jsonImg[0].imgUrl;
+              const url = this.jsonImg[0].img;
               element.urlimage = url;
           });
         },
@@ -207,7 +227,7 @@ export class AddPropertiesComponent implements OnInit {
         break;
       case 2:
         this.actionsPropertie = "Actualizar propiedad";        
-        this.abuttoon= false;
+        this.abuttoon= true;
         this.clearItem();
         this.hidenTable = false;
         this.hidenForm = true;
@@ -218,5 +238,22 @@ export class AddPropertiesComponent implements OnInit {
         break;
     }  
   }
+
+  validateFormat(event) {
+    let key;
+    if (event.type === 'paste') {
+      key = event.clipboardData.getData('text/plain');
+    } else {
+      key = event.keyCode;
+      key = String.fromCharCode(key);
+    }
+    const regex = /[0-9]|\./;
+     if (!regex.test(key)) {
+      event.returnValue = false;
+       if (event.preventDefault) {
+        event.preventDefault();
+       }
+     }
+    }
 
 }

@@ -24,11 +24,9 @@ export class OurPropertiesComponent implements OnInit {
         (res) => {
           this.properties = res;
           this.properties.forEach(element => {
-            // if(element.textProperties == "asdas"){
               this.jsonImg = JSON.parse(element.urlimage);
-              const url = this.jsonImg[0].imgUrl
+              const url = this.jsonImg[0].img
               element.urlimage = url;
-            // }
           });
           localStorage.setItem('JsonProperties', JSON.stringify(this.properties));
         }

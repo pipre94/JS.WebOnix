@@ -29,6 +29,7 @@ import { InfoFormsComponent } from './info-forms/info-forms.component';
 import { SignupComponent } from './signup/signup.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import {GoogleMapsModule} from '@angular/google-maps'; 
+import { ThousandsPipe } from 'app/pipes/thousandsPipe';
 
 @NgModule({
     imports: [
@@ -62,7 +63,8 @@ import {GoogleMapsModule} from '@angular/google-maps';
         TextGeneralComponent,
         InfoFormsComponent,
         SignupComponent,
-        AdminMenuComponent
+        AdminMenuComponent,
+        ThousandsPipe
     ],
     entryComponents: [NgbdModalContent],
     exports:[ ComponentsComponent,NgbdModalComponent ]
