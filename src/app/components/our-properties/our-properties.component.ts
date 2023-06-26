@@ -27,6 +27,8 @@ export class OurPropertiesComponent implements OnInit {
               this.jsonImg = JSON.parse(element.urlimage);
               const url = this.jsonImg[0].img
               element.urlimage = url;
+              const data = this.agregarSeparadorMiles(element.price);
+              element.price = `$${data} cop`
           });
           localStorage.setItem('JsonProperties', JSON.stringify(this.properties));
         }
@@ -35,4 +37,11 @@ export class OurPropertiesComponent implements OnInit {
         console.error(error);
       });
   }
+
+  agregarSeparadorMiles(numeroString: string): string {
+    const numero = parseInt(numeroString, 10); // Convierte la cadena a un número entero
+    return numero.toLocaleString(); // Agrega los separadores de miles al número
+  }
+
+
 }

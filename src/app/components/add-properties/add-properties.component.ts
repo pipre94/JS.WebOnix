@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Properties } from '../../interfaces/properties';
-import { OnixBackService } from 'app/services/onix-back.service';
 import { OnixPropertiesService } from 'app/services/onix-properties.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Storage, ref, uploadBytes, listAll, getDownloadURL } from '@angular/fire/storage';
-import { concat } from 'rxjs';
-import { Pipe, PipeTransform } from '@angular/core';
 
 @Component({
   selector: 'app-add-properties',
@@ -48,9 +44,14 @@ export class AddPropertiesComponent implements OnInit {
     const property = {
             img: url
           };
-    this.principalPropertie.push(property);
-    alert('La imagen ha sido cargada!');
-    this.abuttoon = true;
+   console.log(property);
+  setTimeout(() => {
+      this.principalPropertie.push(property);
+      alert('La imagen ha sido cargada!');
+      this.abuttoon = true;
+      event='';
+    }, 2000);
+   
   }
 
   async getImages(imgName) {
@@ -73,11 +74,12 @@ export class AddPropertiesComponent implements OnInit {
   async onFileSelected(event: any) {
     this.viewProperties = [];
     this.abuttoon = false;
-    const files: FileList = event.target.files;
+    let files: FileList = event.target.files;
     await this.realizarPeticionAsync(files)
     setTimeout(() => {
-      alert('Las imagenes han sido cargada!');
+      alert('Las imagenes cargadas con éxito!');
       this.abuttoon = true;
+      event='';
     }, 6000);
   } 
 
@@ -104,9 +106,6 @@ export class AddPropertiesComponent implements OnInit {
     const idProperti = this.addPropertie.id;
     if(idProperti == undefined ){
       if(this.addPropertie.textProperties != undefined && this.addPropertie.price != undefined && this.addPropertie.details != undefined){
-        const data = this.agregarSeparadorMiles(this.addPropertie.price);
-        this.addPropertie.price = `$${data} cop`
-        console.log(this.addPropertie);
         this.addPropertieDb(this.addPropertie); 
         alert("¡Propiedad adicionada!");
 
@@ -114,10 +113,7 @@ export class AddPropertiesComponent implements OnInit {
         alert("¡Digite todos los campos!")
       }
     }else{
-      if(this.addPropertie.textProperties != undefined && this.addPropertie.price != undefined && this.addPropertie.details != undefined){
-        const data = this.agregarSeparadorMiles(this.addPropertie.price);
-        this.addPropertie.price = `$${data} cop`
-        console.log(this.addPropertie);
+      if(this.addPropertie.textProperties != undefined && this.addPropertie.price != undefined && this.addPropertie.details != undefined){        
         this.updateUserDb(idProperti,this.addPropertie);
         alert("¡Sus cambios se han actualizado!");
       }else{
@@ -125,12 +121,6 @@ export class AddPropertiesComponent implements OnInit {
       }  
     }
   }
-
-  agregarSeparadorMiles(numeroString: string): string {
-    const numero = parseInt(numeroString, 10); // Convierte la cadena a un número entero
-    return numero.toLocaleString(); // Agrega los separadores de miles al número
-  }
-
   clearItem(){
     this.addPropertie={};
   }
@@ -192,6 +182,8 @@ export class AddPropertiesComponent implements OnInit {
               this.jsonImg = JSON.parse(element.urlimage);
               const url = this.jsonImg[0].img;
               element.urlimage = url;
+              const data = this.agregarSeparadorMiles(element.price);
+              element.price = `$${data} cop`
           });
         },
       (error) => {
@@ -254,6 +246,11 @@ export class AddPropertiesComponent implements OnInit {
         event.preventDefault();
        }
      }
-    }
+  }
+
+  agregarSeparadorMiles(numeroString: string): string {
+    const numero = parseInt(numeroString, 10); // Convierte la cadena a un número entero
+    return numero.toLocaleString(); // Agrega los separadores de miles al número
+  }
 
 }
